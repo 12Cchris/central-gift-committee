@@ -47,6 +47,27 @@
     gap:16px;
   }
   .utilbar span{opacity:.85;}
+  .utilbar-link{
+    opacity:.85;
+    color:#cfc9b8;
+    text-decoration:none;
+    background:none;
+    border:none;
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:12px;
+    cursor:pointer;
+    padding:0;
+  }
+  .utilbar-link:hover{opacity:1;text-decoration:underline;}
+  .utilbar-btn{font-weight:700;letter-spacing:.02em;}
+
+  /* Google 번역 위젯 UI 숨김 (디자인 유지용) */
+  .goog-te-banner-frame.skiptranslate{display:none !important;}
+  body{top:0 !important;}
+  #google_translate_element{display:none !important;}
+  .goog-te-gadget{display:none !important;}
+  .goog-tooltip, .goog-tooltip:hover{display:none !important;visibility:hidden !important;}
+  .goog-text-highlight{background:none !important;box-shadow:none !important;}
 
   /* ===== 로고바 ===== */
   .logobar{
@@ -413,7 +434,7 @@
 <body>
 
 <div class="utilbar"><div class="wrap">
-  <span>선물특별시 마음구</span><span>본문바로가기</span><span>ENG</span>
+  <span>선물특별시 마음구</span><a href="#main" class="utilbar-link">본문바로가기</a><button id="langToggle" class="utilbar-link utilbar-btn" type="button">ENG</button>
 </div></div>
 
 <div class="logobar"><div class="wrap">
@@ -431,7 +452,7 @@
   <a href="#contact">오시는 길</a>
 </div></nav>
 
-<main>
+<main id="main">
 
   <div class="notice">
     <div class="docnum">중앙선물위원회 공고 제2026-113호</div>
@@ -671,5 +692,45 @@
   render();
 })();
 </script>
+
+<!-- ===== ENG 자동 번역 (Google 웹사이트 번역기) ===== -->
+<div id="google_translate_element"></div>
+<script>
+(function(){
+  function getCookie(name){
+    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function isEnglish(){
+    var v = getCookie('googtrans');
+    return !!v && v.indexOf('/en') !== -1;
+  }
+  function setLang(toEnglish){
+    var host = location.hostname;
+    if(toEnglish){
+      document.cookie = 'googtrans=/ko/en; path=/;';
+      document.cookie = 'googtrans=/ko/en; path=/; domain=' + host + ';';
+    } else {
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + host + ';';
+    }
+    location.reload();
+  }
+
+  var btn = document.getElementById('langToggle');
+  btn.textContent = isEnglish() ? 'KOR' : 'ENG';
+  btn.addEventListener('click', function(){
+    setLang(!isEnglish());
+  });
+
+  window.googleTranslateElementInit = function(){
+    new google.translate.TranslateElement(
+      {pageLanguage:'ko', includedLanguages:'en', autoDisplay:false},
+      'google_translate_element'
+    );
+  };
+})();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
