@@ -61,14 +61,6 @@
   .utilbar-link:hover{opacity:1;text-decoration:underline;}
   .utilbar-btn{font-weight:700;letter-spacing:.02em;}
 
-  /* Google 번역 위젯 UI 숨김 (디자인 유지용) */
-  .goog-te-banner-frame.skiptranslate{display:none !important;}
-  body{top:0 !important;}
-  #google_translate_element{display:none !important;}
-  .goog-te-gadget{display:none !important;}
-  .goog-tooltip, .goog-tooltip:hover{display:none !important;visibility:hidden !important;}
-  .goog-text-highlight{background:none !important;box-shadow:none !important;}
-
   /* ===== 로고바 ===== */
   .logobar{
     background:var(--paper);
@@ -434,52 +426,55 @@
 <body>
 
 <div class="utilbar"><div class="wrap">
-  <span>선물특별시 마음구</span><a href="#main" class="utilbar-link">본문바로가기</a><button id="langToggle" class="utilbar-link utilbar-btn" type="button">ENG</button>
+  <span data-ko="선물특별시 마음구" data-en="Gift Special City, Maeum-gu">선물특별시 마음구</span><a href="#main" class="utilbar-link" data-ko="본문바로가기" data-en="Skip to content">본문바로가기</a><button id="langToggle" class="utilbar-link utilbar-btn" type="button">ENG</button>
 </div></div>
 
 <div class="logobar"><div class="wrap">
   <div class="emblem-wrap"><img class="emblem-img" src="logo.webp" alt="중앙선물위원회 엠블럼"></div>
-  <div class="title">중앙선물위원회
-    <small>CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다</small>
+  <div class="title"><span data-ko="중앙선물위원회" data-en="Central Gift Committee">중앙선물위원회</span>
+    <small data-ko="CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다" data-en="Reviewing the sincerity of every gift">CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다</small>
   </div>
 </div></div>
 
 <nav class="mainnav"><div class="wrap">
-  <a href="#greeting">위원회 소개</a>
-  <a href="#duties">소관업무</a>
-  <a href="#org">조직도</a>
-  <a href="#board">고시·공고</a>
-  <a href="#contact">오시는 길</a>
+  <a href="#greeting" data-ko="위원회 소개" data-en="About Us">위원회 소개</a>
+  <a href="#duties" data-ko="소관업무" data-en="Duties">소관업무</a>
+  <a href="#org" data-ko="조직도" data-en="Organization">조직도</a>
+  <a href="#board" data-ko="고시·공고" data-en="Notices">고시·공고</a>
+  <a href="#contact" data-ko="오시는 길" data-en="Location">오시는 길</a>
 </div></nav>
 
 <main id="main">
 
   <div class="notice">
-    <div class="docnum">중앙선물위원회 공고 제2026-113호</div>
-    <h1>중앙선물위원회 설립 및 운영에 관한 공고</h1>
-    <div class="date">2026년 9월 7일</div>
-    <p>
+    <div class="docnum" data-ko="중앙선물위원회 공고 제2026-113호" data-en="Central Gift Committee Notice No. 2026-113">중앙선물위원회 공고 제2026-113호</div>
+    <h1 data-ko="중앙선물위원회 설립 및 운영에 관한 공고" data-en="Notice on the Establishment and Operation of the Central Gift Committee">중앙선물위원회 설립 및 운영에 관한 공고</h1>
+    <div class="date" data-ko="2026년 9월 7일" data-en="September 7, 2026">2026년 9월 7일</div>
+    <p data-ko="본 위원회는 국민 개개인이 선물을 고를 때 겪는 고민의 무게를 국가가 함께 나누어야 한다는 취지 아래 설립되었으며, 선물의 적정성 심의, 마니또 배정, 명절 선물 시세 조사 등 선물과 관련된 제반 업무를 관장한다. 이에 위원회의 설립 사실과 운영 방침을 아래와 같이 공고한다."
+       data-en="This committee was established on the principle that the nation should share in the burden every citizen carries when choosing a gift. It oversees all gift-related affairs, including reviewing gift appropriateness, assigning Secret Santas, and surveying holiday gift prices. The establishment of the committee and its operating policy are hereby announced as follows.">
       본 위원회는 국민 개개인이 선물을 고를 때 겪는 고민의 무게를 국가가 함께 나누어야 한다는
       취지 아래 설립되었으며, 선물의 적정성 심의, 마니또 배정, 명절 선물 시세 조사 등
       선물과 관련된 제반 업무를 관장한다. 이에 위원회의 설립 사실과 운영 방침을 아래와 같이
       공고한다.
     </p>
-    <div class="from">중앙선물위원회 위원장</div>
+    <div class="from" data-ko="중앙선물위원회 위원장" data-en="Chairperson, Central Gift Committee">중앙선물위원회 위원장</div>
     <div class="seal"><img src="logo.webp" alt="중앙선물위원회 인장"></div>
   </div>
 
   <section id="greeting">
     <div class="kicker">GREETING</div>
-    <h2>위원장 인사말</h2>
+    <h2 data-ko="위원장 인사말" data-en="Chairperson's Greeting">위원장 인사말</h2>
     <div class="greeting">
-      <div class="portrait">위원장</div>
+      <div class="portrait" data-ko="위원장" data-en="Chair">위원장</div>
       <div class="text">
-        <p>
+        <p data-ko="존경하는 국민 여러분, 언제나 받는 사람보다 고르는 사람이 더 오래 고민하는 나라, 대한민국입니다. 저희 중앙선물위원회는 그 오랜 고민의 시간을 조금이나마 덜어드리고자 출범하였습니다."
+           data-en="Dear citizens, in this country the one choosing a gift always agonizes longer than the one receiving it. The Central Gift Committee was founded to ease even a small part of that long deliberation.">
           존경하는 국민 여러분, 언제나 받는 사람보다 고르는 사람이 더 오래 고민하는 나라,
           대한민국입니다. 저희 중앙선물위원회는 그 오랜 고민의 시간을 조금이나마 덜어드리고자
           출범하였습니다.
         </p>
-        <p>
+        <p data-ko="누군가는 편지 한 장이 선물이 되고, 누군가는 백화점 상품권 앞에서 밤을 지새웁니다. 위원회는 이 모든 정성을 값으로 매기지 않되, 최소한의 기준과 방향은 제시하는 기관이 되고자 합니다. 무엇을 살지 고민하는 국민 여러분 곁에, 언제나 중앙선물위원회가 있겠습니다."
+           data-en="For some, a single letter is a gift; for others, a sleepless night is spent staring at a department store gift card. The committee will never put a price on sincerity, but it hopes to offer at least a minimal standard and direction. Whenever you're wondering what to buy, the Central Gift Committee will be right there with you.">
           누군가는 편지 한 장이 선물이 되고, 누군가는 백화점 상품권 앞에서 밤을 지새웁니다.
           위원회는 이 모든 정성을 값으로 매기지 않되, 최소한의 기준과 방향은 제시하는 기관이
           되고자 합니다. 무엇을 살지 고민하는 국민 여러분 곁에, 언제나 중앙선물위원회가
@@ -488,35 +483,35 @@
       </div>
     </div>
     <div class="sign">
-      중앙선물위원회 위원장
-      <small>재미로 만든 가상의 직함입니다</small>
+      <span data-ko="중앙선물위원회 위원장" data-en="Chairperson, Central Gift Committee">중앙선물위원회 위원장</span>
+      <small data-ko="재미로 만든 가상의 직함입니다" data-en="A fictional title, created just for fun">재미로 만든 가상의 직함입니다</small>
     </div>
   </section>
 
   <section id="about">
     <div class="kicker">ABOUT</div>
-    <h2>위원회 소개</h2>
+    <h2 data-ko="위원회 소개" data-en="About the Committee">위원회 소개</h2>
     <div class="articles">
       <div class="article">
-        <div class="num">제1조</div>
+        <div class="num" data-ko="제1조" data-en="Article 1">제1조</div>
         <div class="body">
-          <h3>설치 목적</h3>
-          <p>이 위원회는 선물 문화의 건전한 발전과 정성의 공정한 평가를 도모함을 목적으로 한다.</p>
+          <h3 data-ko="설치 목적" data-en="Purpose">설치 목적</h3>
+          <p data-ko="이 위원회는 선물 문화의 건전한 발전과 정성의 공정한 평가를 도모함을 목적으로 한다." data-en="This committee aims to promote the healthy development of gift-giving culture and the fair evaluation of sincerity.">이 위원회는 선물 문화의 건전한 발전과 정성의 공정한 평가를 도모함을 목적으로 한다.</p>
         </div>
       </div>
       <div class="article">
-        <div class="num">제2조</div>
+        <div class="num" data-ko="제2조" data-en="Article 2">제2조</div>
         <div class="body">
-          <h3>설립일</h3>
-          <p>본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나
+          <h3 data-ko="설립일" data-en="Establishment Date">설립일</h3>
+          <p data-ko="본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나 늦은 날은 없다는 판단 아래 오늘을 설립일로 정하였다." data-en="This committee was established on September 7, 2026, on the judgment that there is no day too early or too late to think about a gift, and so today was chosen as the founding date.">본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나
           늦은 날은 없다는 판단 아래 오늘을 설립일로 정하였다.</p>
         </div>
       </div>
       <div class="article">
-        <div class="num">제3조</div>
+        <div class="num" data-ko="제3조" data-en="Article 3">제3조</div>
         <div class="body">
-          <h3>운영 원칙</h3>
-          <p>위원회는 가격이 아닌 정성을 우선 기준으로 삼되, 부득이한 경우 가성비를 참고할 수 있다.</p>
+          <h3 data-ko="운영 원칙" data-en="Operating Principle">운영 원칙</h3>
+          <p data-ko="위원회는 가격이 아닌 정성을 우선 기준으로 삼되, 부득이한 경우 가성비를 참고할 수 있다." data-en="The committee prioritizes sincerity over price, though value for money may be considered when unavoidable.">위원회는 가격이 아닌 정성을 우선 기준으로 삼되, 부득이한 경우 가성비를 참고할 수 있다.</p>
         </div>
       </div>
     </div>
@@ -524,37 +519,37 @@
 
   <section id="duties">
     <div class="kicker">DUTIES</div>
-    <h2>소관업무</h2>
+    <h2 data-ko="소관업무" data-en="Duties">소관업무</h2>
     <table class="duties">
       <thead>
-        <tr><th>구분</th><th>내용</th></tr>
+        <tr><th data-ko="구분" data-en="Category">구분</th><th data-ko="내용" data-en="Description">내용</th></tr>
       </thead>
       <tbody>
-        <tr><td>선물 적정성 심사</td><td>가격 대비 정성 지수(가정지수)를 산정하여 공표한다.</td></tr>
-        <tr><td>마니또 배정 총괄</td><td>전국 단위 마니또 매칭을 관장하며 배정 결과의 형평성을 점검한다.</td></tr>
-        <tr><td>명절 선물 물가 조사</td><td>참기름 세트, 스팸 세트 등 표준 품목의 시세를 조사·발표한다.</td></tr>
-        <tr><td>답례품 표준 지침</td><td>결혼식·돌잔치 답례품의 최소 구성 기준을 고시한다.</td></tr>
-        <tr><td>포장재 재사용 점검</td><td>선물 포장지 및 쇼핑백의 재활용 실태를 조사한다.</td></tr>
-        <tr><td>금기 선물 관리</td><td>지역·상황별 금기 선물 목록을 데이터베이스로 유지·관리한다.</td></tr>
+        <tr><td data-ko="선물 적정성 심사" data-en="Gift Appropriateness Review">선물 적정성 심사</td><td data-ko="가격 대비 정성 지수(가정지수)를 산정하여 공표한다." data-en="Calculates and publishes the Sincerity-to-Price Index (SPI).">가격 대비 정성 지수(가정지수)를 산정하여 공표한다.</td></tr>
+        <tr><td data-ko="마니또 배정 총괄" data-en="Secret Santa Assignment">마니또 배정 총괄</td><td data-ko="전국 단위 마니또 매칭을 관장하며 배정 결과의 형평성을 점검한다." data-en="Oversees nationwide Secret Santa matching and reviews the fairness of assignments.">전국 단위 마니또 매칭을 관장하며 배정 결과의 형평성을 점검한다.</td></tr>
+        <tr><td data-ko="명절 선물 물가 조사" data-en="Holiday Gift Price Survey">명절 선물 물가 조사</td><td data-ko="참기름 세트, 스팸 세트 등 표준 품목의 시세를 조사·발표한다." data-en="Surveys and announces prices for standard items such as sesame oil sets and canned-meat gift sets.">참기름 세트, 스팸 세트 등 표준 품목의 시세를 조사·발표한다.</td></tr>
+        <tr><td data-ko="답례품 표준 지침" data-en="Return-Gift Standards">답례품 표준 지침</td><td data-ko="결혼식·돌잔치 답례품의 최소 구성 기준을 고시한다." data-en="Publishes the minimum standard for wedding and first-birthday return gifts.">결혼식·돌잔치 답례품의 최소 구성 기준을 고시한다.</td></tr>
+        <tr><td data-ko="포장재 재사용 점검" data-en="Wrapping Reuse Inspection">포장재 재사용 점검</td><td data-ko="선물 포장지 및 쇼핑백의 재활용 실태를 조사한다." data-en="Investigates the recycling rate of gift wrap and shopping bags.">선물 포장지 및 쇼핑백의 재활용 실태를 조사한다.</td></tr>
+        <tr><td data-ko="금기 선물 관리" data-en="Taboo Gift Management">금기 선물 관리</td><td data-ko="지역·상황별 금기 선물 목록을 데이터베이스로 유지·관리한다." data-en="Maintains a database of taboo gifts by region and situation.">지역·상황별 금기 선물 목록을 데이터베이스로 유지·관리한다.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section id="org">
     <div class="kicker">ORGANIZATION</div>
-    <h2>조직도</h2>
+    <h2 data-ko="조직도" data-en="Organization Chart">조직도</h2>
     <div class="orgchart">
-      <div class="org-box top">위원장</div>
+      <div class="org-box top" data-ko="위원장" data-en="Chair">위원장</div>
       <div class="connector"></div>
-      <div class="org-box">부위원장</div>
+      <div class="org-box" data-ko="부위원장" data-en="Vice Chair">부위원장</div>
       <div class="connector"></div>
       <div class="connector-h"></div>
       <div class="connector" style="margin-top:0;"></div>
       <div class="org-branch">
-        <div class="org-box">선물심사과</div>
-        <div class="org-box">포장규격과</div>
-        <div class="org-box">답례품관리과</div>
-        <div class="org-box">마니또운영팀</div>
+        <div class="org-box" data-ko="선물심사과" data-en="Gift Review Division">선물심사과</div>
+        <div class="org-box" data-ko="포장규격과" data-en="Packaging Standards Division">포장규격과</div>
+        <div class="org-box" data-ko="답례품관리과" data-en="Return-Gift Management Division">답례품관리과</div>
+        <div class="org-box" data-ko="마니또운영팀" data-en="Secret Santa Operations Team">마니또운영팀</div>
       </div>
     </div>
   </section>
@@ -562,11 +557,11 @@
   <section id="board">
     <div class="kicker">NOTICE</div>
     <div class="board-head">
-      <h2>고시·공고</h2>
+      <h2 data-ko="고시·공고" data-en="Notices">고시·공고</h2>
     </div>
     <table class="board" id="boardTable">
       <thead>
-        <tr><th>번호</th><th>제목</th><th>등록일</th></tr>
+        <tr><th data-ko="번호" data-en="No.">번호</th><th data-ko="제목" data-en="Title">제목</th><th data-ko="등록일" data-en="Date">등록일</th></tr>
       </thead>
       <tbody id="boardBody"></tbody>
     </table>
@@ -574,14 +569,14 @@
 
   <section id="contact">
     <div class="kicker">LOCATION</div>
-    <h2>오시는 길</h2>
+    <h2 data-ko="오시는 길" data-en="Location">오시는 길</h2>
     <div class="contact">
-      <div class="mapbox">지도는 마음속에 있습니다</div>
+      <div class="mapbox" data-ko="지도는 마음속에 있습니다" data-en="The map lives in your heart">지도는 마음속에 있습니다</div>
       <dl>
-        <div class="row"><dt>주소</dt><dd>선물특별시 마음구 정성로 100 (진심동)</dd></div>
-        <div class="row"><dt>대표전화</dt><dd>1522-0000 (가상의 번호입니다)</dd></div>
-        <div class="row"><dt>팩스</dt><dd>02-000-0000</dd></div>
-        <div class="row"><dt>운영시간</dt><dd>연중무휴, 마음이 있을 때</dd></div>
+        <div class="row"><dt data-ko="주소" data-en="Address">주소</dt><dd data-ko="선물특별시 마음구 정성로 100 (진심동)" data-en="100 Sincerity-ro, Maeum-gu, Gift Special City (Jinsim-dong)">선물특별시 마음구 정성로 100 (진심동)</dd></div>
+        <div class="row"><dt data-ko="대표전화" data-en="Main Phone">대표전화</dt><dd data-ko="1522-0000 (가상의 번호입니다)" data-en="1522-0000 (a fictional number)">1522-0000 (가상의 번호입니다)</dd></div>
+        <div class="row"><dt data-ko="팩스" data-en="Fax">팩스</dt><dd>02-000-0000</dd></div>
+        <div class="row"><dt data-ko="운영시간" data-en="Hours">운영시간</dt><dd data-ko="연중무휴, 마음이 있을 때" data-en="Open year-round, whenever the heart is in it">연중무휴, 마음이 있을 때</dd></div>
       </dl>
     </div>
   </section>
@@ -589,10 +584,10 @@
 </main>
 
 <footer><div class="wrap">
-  <div class="fname">중앙선물위원회</div>
-  <p>선물특별시 마음구 정성로 100 (진심동) · 대표전화 1522-0000</p>
+  <div class="fname" data-ko="중앙선물위원회" data-en="Central Gift Committee">중앙선물위원회</div>
+  <p data-ko="선물특별시 마음구 정성로 100 (진심동) · 대표전화 1522-0000" data-en="100 Sincerity-ro, Maeum-gu, Gift Special City (Jinsim-dong) · Main 1522-0000">선물특별시 마음구 정성로 100 (진심동) · 대표전화 1522-0000</p>
   <p>Copyright ⓒ Central Gift Committee. All rights reserved.</p>
-  <div class="disclaimer">
+  <div class="disclaimer" data-ko="본 사이트는 재미로 제작된 가상의 기관 웹사이트이며, 실제 정부기관과 무관합니다." data-en="This website is a fictional parody created for fun and is not affiliated with any real government agency.">
     본 사이트는 재미로 제작된 가상의 기관 웹사이트이며, 실제 정부기관과 무관합니다.
   </div>
 </div></footer>
@@ -606,19 +601,38 @@
   //  유일한 데이터입니다.)
   // ============================================================
   var notices = [
-    {id:1, title:'추석 선물세트 표준가격 고시', date:'2026-09-02',
-     content:'중앙선물위원회는 2026년도 추석을 맞아 선물세트 표준가격을 아래와 같이 고시한다.\n\n1. 정성 등급: 3만원 이하\n2. 성의 등급: 3만원 초과 ~ 7만원 이하\n3. 과잉 등급: 7만원 초과 (사유서 제출 권고)\n\n본 고시는 공고일로부터 시행하며, 마음이 가격을 초과하는 경우에 대하여는 별도 심의를 거치지 아니한다.'},
-    {id:2, title:'국화빵 답례품 인정 여부에 관한 유권해석', date:'2026-08-14',
-     content:'민원인 문의에 대하여 다음과 같이 회신한다.\n\n국화빵은 그 형태와 정성이 답례품 표준 지침 제3조가 정하는 "소박하되 진심이 담긴 간식류"에 해당하므로 답례품으로 인정함이 타당하다. 다만 붕어빵과 혼합 구성 시에는 각각을 개별 품목으로 산정한다.'},
-    {id:3, title:'여름 휴가철 선물 자제 권고문', date:'2026-07-21',
-     content:'무더운 여름철 휴가지에서의 즉흥적 선물 구매가 증가함에 따라, 위원회는 다음 사항을 권고한다.\n\n- 기념품 가게 앞에서 3분 이상 숙고할 것\n- "이거 예쁘다" 발언 이후에는 반드시 재고할 것\n- 냉장 보관이 필요한 선물은 지양할 것\n\n권고문은 강제력이 없으나, 지키면 어쩐지 뿌듯하다.'},
-    {id:4, title:'어린이날 선물 상한액 조정 고시', date:'2026-05-04',
-     content:'물가 상승을 반영하여 어린이날 선물 상한액을 전년 대비 소폭 상향 조정한다.\n\n조정 전: 5만원 / 조정 후: 5만 5천원\n\n다만 조부모가 지급하는 용돈은 본 고시의 적용 대상에서 제외한다.'},
-    {id:5, title:'발렌타인데이 초콜릿 의무 표시사항 개정', date:'2026-02-10',
-     content:'초콜릿 포장에 다음 사항을 의무적으로 표시하도록 개정한다.\n\n1. 원산지\n2. 카카오 함량\n3. "직접 만든 것인지 여부"\n\n제3호 표시를 누락하는 경우 진정성에 대한 의구심이 제기될 수 있음을 유의한다.'}
+    {id:1, date:'2026-09-02',
+     title:'추석 선물세트 표준가격 고시',
+     content:'중앙선물위원회는 2026년도 추석을 맞아 선물세트 표준가격을 아래와 같이 고시한다.\n\n1. 정성 등급: 3만원 이하\n2. 성의 등급: 3만원 초과 ~ 7만원 이하\n3. 과잉 등급: 7만원 초과 (사유서 제출 권고)\n\n본 고시는 공고일로부터 시행하며, 마음이 가격을 초과하는 경우에 대하여는 별도 심의를 거치지 아니한다.',
+     title_en:'Chuseok Gift Set Standard Price Notice',
+     content_en:'On the occasion of Chuseok 2026, the Central Gift Committee hereby announces the standard prices for gift sets as follows.\n\n1. Sincerity Grade: ₩30,000 or less\n2. Thoughtfulness Grade: over ₩30,000 up to ₩70,000\n3. Excess Grade: over ₩70,000 (a written explanation is recommended)\n\nThis notice takes effect from the date of announcement. Cases where sincerity exceeds price are not subject to separate review.'},
+    {id:2, date:'2026-08-14',
+     title:'국화빵 답례품 인정 여부에 관한 유권해석',
+     content:'민원인 문의에 대하여 다음과 같이 회신한다.\n\n국화빵은 그 형태와 정성이 답례품 표준 지침 제3조가 정하는 "소박하되 진심이 담긴 간식류"에 해당하므로 답례품으로 인정함이 타당하다. 다만 붕어빵과 혼합 구성 시에는 각각을 개별 품목으로 산정한다.',
+     title_en:'Authoritative Interpretation on Chrysanthemum Bread as a Return Gift',
+     content_en:'In response to a citizen inquiry, the committee replies as follows.\n\nChrysanthemum-shaped bread, given its form and the sincerity it embodies, qualifies as a "modest yet heartfelt snack" under Article 3 of the Return-Gift Standards, and is therefore recognized as an appropriate return gift. However, when combined with fish-shaped bread, each shall be counted as a separate item.'},
+    {id:3, date:'2026-07-21',
+     title:'여름 휴가철 선물 자제 권고문',
+     content:'무더운 여름철 휴가지에서의 즉흥적 선물 구매가 증가함에 따라, 위원회는 다음 사항을 권고한다.\n\n- 기념품 가게 앞에서 3분 이상 숙고할 것\n- "이거 예쁘다" 발언 이후에는 반드시 재고할 것\n- 냉장 보관이 필요한 선물은 지양할 것\n\n권고문은 강제력이 없으나, 지키면 어쩐지 뿌듯하다.',
+     title_en:'Recommendation on Restraint in Summer Vacation Gift Purchases',
+     content_en:'As impulsive gift purchases at vacation destinations increase during the hot summer season, the committee recommends the following.\n\n- Pause and reflect for at least three minutes in front of a souvenir shop\n- Always reconsider after saying "this is pretty"\n- Avoid gifts that require refrigeration\n\nThis recommendation is not legally binding, but following it feels oddly satisfying.'},
+    {id:4, date:'2026-05-04',
+     title:'어린이날 선물 상한액 조정 고시',
+     content:'물가 상승을 반영하여 어린이날 선물 상한액을 전년 대비 소폭 상향 조정한다.\n\n조정 전: 5만원 / 조정 후: 5만 5천원\n\n다만 조부모가 지급하는 용돈은 본 고시의 적용 대상에서 제외한다.',
+     title_en:"Adjustment of the Children's Day Gift Cap",
+     content_en:"Reflecting inflation, the Children's Day gift cap has been raised slightly from the previous year.\n\nPrevious: ₩50,000 / New: ₩55,000\n\nHowever, pocket money given by grandparents is excluded from this notice."},
+    {id:5, date:'2026-02-10',
+     title:'발렌타인데이 초콜릿 의무 표시사항 개정',
+     content:'초콜릿 포장에 다음 사항을 의무적으로 표시하도록 개정한다.\n\n1. 원산지\n2. 카카오 함량\n3. "직접 만든 것인지 여부"\n\n제3호 표시를 누락하는 경우 진정성에 대한 의구심이 제기될 수 있음을 유의한다.',
+     title_en:"Revision of Mandatory Labeling for Valentine's Day Chocolate",
+     content_en:"Chocolate packaging is hereby revised to require the following mandatory labels.\n\n1. Country of origin\n2. Cacao content\n3. Whether it was handmade\n\nPlease note that omitting item 3 may raise questions about the sincerity of the gift."}
   ];
 
   var expandedId = null;
+
+  function currentLang(){
+    return document.documentElement.lang === 'en' ? 'en' : 'ko';
+  }
 
   function formatDate(iso){
     if(!iso) return '';
@@ -635,6 +649,7 @@
 
   function render(){
     sortNotices();
+    var lang = currentLang();
     var body = document.getElementById('boardBody');
     body.innerHTML = '';
     var total = notices.length;
@@ -654,7 +669,7 @@
       toggle.className = 'title-toggle' + (expandedId === n.id ? ' open' : '');
       toggle.textContent = '▸';
       tdTitle.appendChild(toggle);
-      tdTitle.appendChild(document.createTextNode(n.title));
+      tdTitle.appendChild(document.createTextNode(lang === 'en' ? n.title_en : n.title));
       tr.appendChild(tdTitle);
 
       var tdDate = document.createElement('td');
@@ -675,12 +690,13 @@
         var tdDetail = document.createElement('td');
         tdDetail.colSpan = 3;
         var detail = document.createElement('div');
-        if(n.content && n.content.trim()){
+        var content = lang === 'en' ? n.content_en : n.content;
+        if(content && content.trim()){
           detail.className = 'board-detail';
-          detail.textContent = n.content;
+          detail.textContent = content;
         } else {
           detail.className = 'board-detail board-detail-empty';
-          detail.textContent = '등록된 상세 내용이 없습니다.';
+          detail.textContent = lang === 'en' ? 'No detailed content has been registered.' : '등록된 상세 내용이 없습니다.';
         }
         tdDetail.appendChild(detail);
         trDetail.appendChild(tdDetail);
@@ -689,48 +705,34 @@
     });
   }
 
+  window.renderBoard = render;
   render();
 })();
 </script>
 
-<!-- ===== ENG 자동 번역 (Google 웹사이트 번역기) ===== -->
-<div id="google_translate_element"></div>
+<!-- ===== ENG/KOR 즉시 전환 (사전 번역, 새로고침·외부요청 없음) ===== -->
 <script>
 (function(){
-  function getCookie(name){
-    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return m ? decodeURIComponent(m[1]) : null;
-  }
-  function isEnglish(){
-    var v = getCookie('googtrans');
-    return !!v && v.indexOf('/en') !== -1;
-  }
-  function setLang(toEnglish){
-    var host = location.hostname;
-    if(toEnglish){
-      document.cookie = 'googtrans=/ko/en; path=/;';
-      document.cookie = 'googtrans=/ko/en; path=/; domain=' + host + ';';
-    } else {
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + host + ';';
-    }
-    location.reload();
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.title = (lang === 'en') ? 'Central Gift Committee' : '중앙선물위원회';
+    document.querySelectorAll('[data-ko]').forEach(function(el){
+      var val = el.getAttribute(lang === 'en' ? 'data-en' : 'data-ko');
+      if(val !== null){ el.innerHTML = val; }
+    });
+    var btn = document.getElementById('langToggle');
+    if(btn){ btn.textContent = (lang === 'en') ? 'KOR' : 'ENG'; }
+    if(typeof window.renderBoard === 'function'){ window.renderBoard(); }
   }
 
   var btn = document.getElementById('langToggle');
-  btn.textContent = isEnglish() ? 'KOR' : 'ENG';
   btn.addEventListener('click', function(){
-    setLang(!isEnglish());
+    applyLang(currentLangIsEn() ? 'ko' : 'en');
   });
-
-  window.googleTranslateElementInit = function(){
-    new google.translate.TranslateElement(
-      {pageLanguage:'ko', includedLanguages:'en', autoDisplay:false},
-      'google_translate_element'
-    );
-  };
+  function currentLangIsEn(){
+    return document.documentElement.lang === 'en';
+  }
 })();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
