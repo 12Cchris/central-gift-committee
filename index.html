@@ -352,26 +352,6 @@
     white-space:pre-wrap;
   }
   .board-detail-empty{color:var(--ink-soft);font-style:italic;}
-  .board-detail-edit{
-    background:var(--paper-dark);
-    padding:14px 22px 20px 40px;
-    border-top:1px solid var(--line);
-  }
-  .board-detail-edit label{
-    display:block;font-size:12px;color:var(--ink-soft);margin-bottom:6px;
-  }
-  .board td textarea{
-    width:100%;
-    font-family:'Noto Sans KR',sans-serif;
-    font-size:14px;line-height:1.7;
-    border:1px solid var(--line);
-    background:#fff;
-    padding:10px 12px;
-    color:var(--ink);
-    resize:vertical;
-    min-height:90px;
-    box-sizing:border-box;
-  }
 
   .board-head{
     display:flex;
@@ -381,56 +361,6 @@
     margin-bottom:30px;
   }
   .board-head h2{margin:0;}
-  .board-tools{display:flex;align-items:center;gap:12px;}
-  .save-status{
-    font-size:12px;color:var(--ink-soft);
-    opacity:0;transition:opacity .3s;
-  }
-  .save-status.show{opacity:1;}
-  .edit-btn{
-    background:var(--navy);color:#efeee5;border:none;
-    padding:8px 18px;font-size:13px;font-weight:500;cursor:pointer;
-    font-family:'Noto Sans KR',sans-serif;
-  }
-  .edit-btn:hover{background:var(--navy-light);}
-  .edit-btn.active{background:var(--seal);}
-
-  .edit-only{display:none;}
-  body.editing .edit-only{display:table-cell;}
-  .col-del{width:44px;}
-  button.edit-only{display:none;}
-  body.editing button.edit-only{display:block;}
-
-  .board td input[type="text"],
-  .board td input[type="date"]{
-    width:100%;
-    font-family:'Noto Sans KR',sans-serif;
-    font-size:14px;
-    border:1px solid var(--line);
-    background:#fff;
-    padding:7px 9px;
-    color:var(--ink);
-  }
-  .board td.date input{width:150px;}
-  .del-btn{
-    background:none;border:none;color:var(--seal);
-    font-size:13px;cursor:pointer;
-    font-family:'Noto Sans KR',sans-serif;
-    padding:4px 6px;
-  }
-  .del-btn:hover{text-decoration:underline;}
-  .add-btn{
-    margin-top:16px;
-    background:none;
-    border:1px dashed var(--line);
-    color:var(--ink-soft);
-    padding:12px 16px;
-    font-size:13.5px;
-    cursor:pointer;
-    width:100%;
-    font-family:'Noto Sans KR',sans-serif;
-  }
-  .add-btn:hover{border-color:var(--navy);color:var(--navy);}
 
   /* ===== 오시는 길 ===== */
   .contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
@@ -487,7 +417,7 @@
 </div></div>
 
 <div class="logobar"><div class="wrap">
-  <div class="emblem-wrap"><img class="emblem-img" src="logo.png" alt="중앙선물위원회 엠블럼"></div>
+  <div class="emblem-wrap"><img class="emblem-img" src="logo.webp" alt="중앙선물위원회 엠블럼"></div>
   <div class="title">중앙선물위원회
     <small>CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다</small>
   </div>
@@ -514,7 +444,7 @@
       공고한다.
     </p>
     <div class="from">중앙선물위원회 위원장</div>
-    <div class="seal"><img src="logo.png" alt="중앙선물위원회 인장"></div>
+    <div class="seal"><img src="logo.webp" alt="중앙선물위원회 인장"></div>
   </div>
 
   <section id="greeting">
@@ -612,18 +542,13 @@
     <div class="kicker">NOTICE</div>
     <div class="board-head">
       <h2>고시·공고</h2>
-      <div class="board-tools">
-        <span id="saveStatus" class="save-status"></span>
-        <button id="editToggle" class="edit-btn" type="button">편집</button>
-      </div>
     </div>
     <table class="board" id="boardTable">
       <thead>
-        <tr><th>번호</th><th>제목</th><th>등록일</th><th class="edit-only col-del"></th></tr>
+        <tr><th>번호</th><th>제목</th><th>등록일</th></tr>
       </thead>
       <tbody id="boardBody"></tbody>
     </table>
-    <button id="addRow" class="add-btn edit-only" type="button">+ 새 공고 추가</button>
   </section>
 
   <section id="contact">
@@ -653,70 +578,26 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'cgc_notices_v1';
-  var seed = [
-    {title:'추석 선물세트 표준가격 고시', date:'2026-09-02',
+  // ============================================================
+  // 새 공고를 추가/수정하려면 아래 notices 배열을 직접 편집한 뒤
+  // commit.bat 을 실행해서 GitHub에 올리세요.
+  // (방문자 브라우저에서는 수정할 수 없고, 이 배열이 모두에게 보이는
+  //  유일한 데이터입니다.)
+  // ============================================================
+  var notices = [
+    {id:1, title:'추석 선물세트 표준가격 고시', date:'2026-09-02',
      content:'중앙선물위원회는 2026년도 추석을 맞아 선물세트 표준가격을 아래와 같이 고시한다.\n\n1. 정성 등급: 3만원 이하\n2. 성의 등급: 3만원 초과 ~ 7만원 이하\n3. 과잉 등급: 7만원 초과 (사유서 제출 권고)\n\n본 고시는 공고일로부터 시행하며, 마음이 가격을 초과하는 경우에 대하여는 별도 심의를 거치지 아니한다.'},
-    {title:'국화빵 답례품 인정 여부에 관한 유권해석', date:'2026-08-14',
+    {id:2, title:'국화빵 답례품 인정 여부에 관한 유권해석', date:'2026-08-14',
      content:'민원인 문의에 대하여 다음과 같이 회신한다.\n\n국화빵은 그 형태와 정성이 답례품 표준 지침 제3조가 정하는 "소박하되 진심이 담긴 간식류"에 해당하므로 답례품으로 인정함이 타당하다. 다만 붕어빵과 혼합 구성 시에는 각각을 개별 품목으로 산정한다.'},
-    {title:'여름 휴가철 선물 자제 권고문', date:'2026-07-21',
+    {id:3, title:'여름 휴가철 선물 자제 권고문', date:'2026-07-21',
      content:'무더운 여름철 휴가지에서의 즉흥적 선물 구매가 증가함에 따라, 위원회는 다음 사항을 권고한다.\n\n- 기념품 가게 앞에서 3분 이상 숙고할 것\n- "이거 예쁘다" 발언 이후에는 반드시 재고할 것\n- 냉장 보관이 필요한 선물은 지양할 것\n\n권고문은 강제력이 없으나, 지키면 어쩐지 뿌듯하다.'},
-    {title:'어린이날 선물 상한액 조정 고시', date:'2026-05-04',
+    {id:4, title:'어린이날 선물 상한액 조정 고시', date:'2026-05-04',
      content:'물가 상승을 반영하여 어린이날 선물 상한액을 전년 대비 소폭 상향 조정한다.\n\n조정 전: 5만원 / 조정 후: 5만 5천원\n\n다만 조부모가 지급하는 용돈은 본 고시의 적용 대상에서 제외한다.'},
-    {title:'발렌타인데이 초콜릿 의무 표시사항 개정', date:'2026-02-10',
+    {id:5, title:'발렌타인데이 초콜릿 의무 표시사항 개정', date:'2026-02-10',
      content:'초콜릿 포장에 다음 사항을 의무적으로 표시하도록 개정한다.\n\n1. 원산지\n2. 카카오 함량\n3. "직접 만든 것인지 여부"\n\n제3호 표시를 누락하는 경우 진정성에 대한 의구심이 제기될 수 있음을 유의한다.'}
   ];
 
-  var editing = false;
   var expandedId = null;
-  var saveTimer = null;
-  var nextId = 1;
-
-  function assignIds(list){
-    list.forEach(function(n){
-      if(n.id === undefined || n.id === null){ n.id = nextId++; }
-      else { nextId = Math.max(nextId, n.id + 1); }
-      if(typeof n.content !== 'string'){ n.content = ''; }
-    });
-    return list;
-  }
-
-  function load(){
-    try{
-      var raw = localStorage.getItem(STORAGE_KEY);
-      if(raw){
-        var parsed = JSON.parse(raw);
-        if(Array.isArray(parsed) && parsed.length) return assignIds(parsed);
-      }
-    }catch(e){}
-    return assignIds(seed.slice());
-  }
-
-  var notices = load();
-
-  function save(){
-    try{
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(notices));
-      flashSaved();
-    }catch(e){
-      console.error('저장 실패', e);
-    }
-  }
-
-  function scheduleSave(){
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(save, 400);
-  }
-
-  function flashSaved(){
-    var el = document.getElementById('saveStatus');
-    if(!el) return;
-    var now = new Date();
-    var hh = String(now.getHours()).padStart(2,'0');
-    var mm = String(now.getMinutes()).padStart(2,'0');
-    el.textContent = '자동 저장됨 · ' + hh + ':' + mm;
-    el.classList.add('show');
-  }
 
   function formatDate(iso){
     if(!iso) return '';
@@ -748,90 +629,30 @@
 
       var tdTitle = document.createElement('td');
       tdTitle.className = 'title';
-      if(editing){
-        var titleInput = document.createElement('input');
-        titleInput.type = 'text';
-        titleInput.value = n.title;
-        titleInput.placeholder = '공고 제목';
-        titleInput.addEventListener('input', function(){ n.title = titleInput.value; scheduleSave(); });
-        tdTitle.appendChild(titleInput);
-      } else {
-        var toggle = document.createElement('span');
-        toggle.className = 'title-toggle' + (expandedId === n.id ? ' open' : '');
-        toggle.textContent = '▸';
-        tdTitle.appendChild(toggle);
-        tdTitle.appendChild(document.createTextNode(n.title));
-      }
+      var toggle = document.createElement('span');
+      toggle.className = 'title-toggle' + (expandedId === n.id ? ' open' : '');
+      toggle.textContent = '▸';
+      tdTitle.appendChild(toggle);
+      tdTitle.appendChild(document.createTextNode(n.title));
       tr.appendChild(tdTitle);
 
       var tdDate = document.createElement('td');
       tdDate.className = 'date';
-      if(editing){
-        var dateInput = document.createElement('input');
-        dateInput.type = 'date';
-        dateInput.value = n.date;
-        dateInput.addEventListener('change', function(){ n.date = dateInput.value; scheduleSave(); render(); });
-        tdDate.appendChild(dateInput);
-      } else {
-        tdDate.textContent = formatDate(n.date);
-      }
+      tdDate.textContent = formatDate(n.date);
       tr.appendChild(tdDate);
 
-      var tdDel = document.createElement('td');
-      tdDel.className = 'edit-only col-del';
-      if(editing){
-        var delBtn = document.createElement('button');
-        delBtn.type = 'button';
-        delBtn.className = 'del-btn';
-        delBtn.textContent = '삭제';
-        delBtn.addEventListener('click', function(e){
-          e.stopPropagation();
-          var idx = notices.indexOf(n);
-          if(idx > -1){
-            notices.splice(idx, 1);
-            if(expandedId === n.id) expandedId = null;
-            scheduleSave();
-            render();
-          }
-        });
-        tdDel.appendChild(delBtn);
-      }
-      tr.appendChild(tdDel);
-
-      if(!editing){
-        tr.addEventListener('click', function(){
-          expandedId = (expandedId === n.id) ? null : n.id;
-          render();
-        });
-      } else {
-        tr.classList.add('no-toggle');
-      }
+      tr.addEventListener('click', function(){
+        expandedId = (expandedId === n.id) ? null : n.id;
+        render();
+      });
 
       body.appendChild(tr);
 
-      if(editing){
-        var trEdit = document.createElement('tr');
-        trEdit.className = 'board-detail-row';
-        var tdEdit = document.createElement('td');
-        tdEdit.colSpan = 4;
-        var wrap = document.createElement('div');
-        wrap.className = 'board-detail-edit';
-        var label = document.createElement('label');
-        label.textContent = '상세 내용';
-        var textarea = document.createElement('textarea');
-        textarea.value = n.content || '';
-        textarea.placeholder = '공고의 상세 내용을 입력하세요.';
-        textarea.addEventListener('input', function(){ n.content = textarea.value; scheduleSave(); });
-        wrap.appendChild(label);
-        wrap.appendChild(textarea);
-        tdEdit.appendChild(wrap);
-        trEdit.appendChild(tdEdit);
-        body.appendChild(trEdit);
-      } else if(expandedId === n.id){
+      if(expandedId === n.id){
         var trDetail = document.createElement('tr');
         trDetail.className = 'board-detail-row';
         var tdDetail = document.createElement('td');
-        tdDetail.colSpan = 4;
+        tdDetail.colSpan = 3;
         var detail = document.createElement('div');
         if(n.content && n.content.trim()){
           detail.className = 'board-detail';
@@ -846,24 +667,6 @@
       }
     });
   }
-
-  document.getElementById('editToggle').addEventListener('click', function(){
-    editing = !editing;
-    document.body.classList.toggle('editing', editing);
-    var btn = document.getElementById('editToggle');
-    btn.textContent = editing ? '완료' : '편집';
-    btn.classList.toggle('active', editing);
-    render();
-  });
-
-  document.getElementById('addRow').addEventListener('click', function(){
-    var iso = new Date().toISOString().slice(0,10);
-    notices.unshift({id: nextId++, title:'', date: iso, content:''});
-    scheduleSave();
-    render();
-    var firstInput = document.querySelector('#boardBody tr td input[type="text"]');
-    if(firstInput) firstInput.focus();
-  });
 
   render();
 })();
