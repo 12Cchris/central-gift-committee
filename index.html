@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<!-- 중앙선물위원회 사이트 v1.1.1 -->
+<meta name="version" content="1.1.1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>중앙선물위원회</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +20,7 @@
     --seal:#9e2b25;
     --line:#c6c1ab;
     --gold:#a4813f;
+    --org-line:rgba(20,44,75,.45);
   }
 
   *{box-sizing:border-box;}
@@ -316,18 +319,34 @@
   }
   .org-box.top{background:var(--navy);color:#efeee5;}
   .org-branch{
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
     gap:18px;
-    margin-top:0;
-    flex-wrap:wrap;
-    justify-content:center;
+    width:100%;
+    max-width:760px;
   }
-  .org-branch .org-box{font-size:13.5px;font-weight:500;padding:11px 16px;}
-  .connector{width:1px;height:26px;background:var(--line);}
-  .connector-h{
-    height:1px;background:var(--line);
-    width:100%;max-width:560px;margin:0 auto;
+  .org-branch .org-box{
+    position:relative;
+    margin-top:26px;
+    font-size:13.5px;font-weight:500;padding:11px 12px;
   }
+  /* 각 부서 박스 위로 올라가는 세로선 */
+  .org-branch .org-box::before{
+    content:"";position:absolute;
+    top:-26px;left:50%;
+    width:1px;height:26px;
+    background:var(--org-line);
+  }
+  /* 부서들을 잇는 가로선 (박스 사이 간격까지 이어 붙임) */
+  .org-branch .org-box::after{
+    content:"";position:absolute;
+    top:-26px;left:-10px;right:-10px;
+    height:1px;
+    background:var(--org-line);
+  }
+  .org-branch .org-box:first-child::after{left:50%;}
+  .org-branch .org-box:last-child::after{right:50%;}
+  .connector{width:1px;height:26px;background:var(--org-line);}
 
   /* ===== 고시·공고 게시판 ===== */
   .board td, .board th{
@@ -350,6 +369,11 @@
   .board tr.board-main{cursor:pointer;}
   .board tr.board-main.no-toggle{cursor:default;}
   .board td.title{position:relative;}
+  .title-btn{
+    background:none;border:none;padding:0;margin:0;
+    font:inherit;color:inherit;text-align:left;cursor:pointer;
+  }
+  .title-btn:focus-visible{outline:2px solid var(--navy);outline-offset:3px;}
   .title-toggle{
     display:inline-block;width:12px;margin-right:8px;
     color:var(--ink-soft);font-size:11px;
@@ -420,6 +444,9 @@
     .article{grid-template-columns:1fr;gap:8px;}
     .contact{grid-template-columns:1fr;}
     .duties td:first-child{width:auto;}
+    .org-branch{grid-template-columns:1fr;gap:26px;max-width:260px;}
+    .org-branch .org-box{margin-top:0;}
+    .org-branch .org-box::after{display:none;}
   }
 </style>
 </head>
@@ -430,14 +457,15 @@
 </div></div>
 
 <div class="logobar"><div class="wrap">
-  <div class="emblem-wrap"><img class="emblem-img" src="logo.webp" alt="중앙선물위원회 엠블럼"></div>
+  <div class="emblem-wrap"><img class="emblem-img" src="logo.webp" alt="중앙선물위원회 엠블럼" data-alt-ko="중앙선물위원회 엠블럼" data-alt-en="Central Gift Committee emblem"></div>
   <div class="title"><span data-ko="중앙선물위원회" data-en="Central Gift Committee">중앙선물위원회</span>
     <small data-ko="CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다" data-en="Reviewing the sincerity of every gift">CENTRAL GIFT COMMITTEE&nbsp;·&nbsp;정성을 심의합니다</small>
   </div>
 </div></div>
 
 <nav class="mainnav"><div class="wrap">
-  <a href="#greeting" data-ko="위원회 소개" data-en="About Us">위원회 소개</a>
+  <a href="#greeting" data-ko="위원장 인사말" data-en="Greeting">위원장 인사말</a>
+  <a href="#about" data-ko="위원회 소개" data-en="About Us">위원회 소개</a>
   <a href="#duties" data-ko="소관업무" data-en="Duties">소관업무</a>
   <a href="#org" data-ko="조직도" data-en="Organization">조직도</a>
   <a href="#board" data-ko="고시·공고" data-en="Notices">고시·공고</a>
@@ -458,7 +486,7 @@
       공고한다.
     </p>
     <div class="from" data-ko="중앙선물위원회 위원장" data-en="Chairperson, Central Gift Committee">중앙선물위원회 위원장</div>
-    <div class="seal"><img src="logo.webp" alt="중앙선물위원회 인장"></div>
+    <div class="seal"><img src="logo.webp" alt="중앙선물위원회 인장" data-alt-ko="중앙선물위원회 인장" data-alt-en="Central Gift Committee seal"></div>
   </div>
 
   <section id="greeting">
@@ -503,8 +531,8 @@
         <div class="num" data-ko="제2조" data-en="Article 2">제2조</div>
         <div class="body">
           <h3 data-ko="설립일" data-en="Establishment Date">설립일</h3>
-          <p data-ko="본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나 늦은 날은 없다는 판단 아래 오늘을 설립일로 정하였다." data-en="This committee was established on September 7, 2026, on the judgment that there is no day too early or too late to think about a gift, and so today was chosen as the founding date.">본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나
-          늦은 날은 없다는 판단 아래 오늘을 설립일로 정하였다.</p>
+          <p data-ko="본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나 늦은 날은 없다는 판단 아래 이날을 설립일로 정하였다. 설립 이전 일자로 게재된 고시·공고는 마음이 먼저 앞선 것으로 보아 소급하여 그 효력을 인정한다." data-en="This committee was established on September 7, 2026, on the judgment that there is no day too early or too late to think about a gift, and so this day was chosen as the founding date. Notices dated before the founding are deemed to reflect sincerity running ahead of the paperwork, and are recognized retroactively.">본 위원회는 2026년 9월 7일 자로 설립되었으며, 선물을 고민하기에 특별히 이르거나
+          늦은 날은 없다는 판단 아래 이날을 설립일로 정하였다. 설립 이전 일자로 게재된 고시·공고는 마음이 먼저 앞선 것으로 보아 소급하여 그 효력을 인정한다.</p>
         </div>
       </div>
       <div class="article">
@@ -543,8 +571,6 @@
       <div class="connector"></div>
       <div class="org-box" data-ko="부위원장" data-en="Vice Chair">부위원장</div>
       <div class="connector"></div>
-      <div class="connector-h"></div>
-      <div class="connector" style="margin-top:0;"></div>
       <div class="org-branch">
         <div class="org-box" data-ko="선물심사과" data-en="Gift Review Division">선물심사과</div>
         <div class="org-box" data-ko="포장규격과" data-en="Packaging Standards Division">포장규격과</div>
@@ -629,6 +655,7 @@
   ];
 
   var expandedId = null;
+  var focusId = null;
 
   function currentLang(){
     return document.documentElement.lang === 'en' ? 'en' : 'ko';
@@ -665,11 +692,19 @@
 
       var tdTitle = document.createElement('td');
       tdTitle.className = 'title';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'title-btn';
+      btn.setAttribute('data-id', n.id);
+      btn.setAttribute('aria-expanded', expandedId === n.id ? 'true' : 'false');
+      btn.setAttribute('aria-controls', 'notice-detail-' + n.id);
       var toggle = document.createElement('span');
       toggle.className = 'title-toggle' + (expandedId === n.id ? ' open' : '');
+      toggle.setAttribute('aria-hidden', 'true');
       toggle.textContent = '▸';
-      tdTitle.appendChild(toggle);
-      tdTitle.appendChild(document.createTextNode(lang === 'en' ? n.title_en : n.title));
+      btn.appendChild(toggle);
+      btn.appendChild(document.createTextNode(lang === 'en' ? n.title_en : n.title));
+      tdTitle.appendChild(btn);
       tr.appendChild(tdTitle);
 
       var tdDate = document.createElement('td');
@@ -677,7 +712,8 @@
       tdDate.textContent = formatDate(n.date);
       tr.appendChild(tdDate);
 
-      tr.addEventListener('click', function(){
+      tr.addEventListener('click', function(e){
+        if(e.detail === 0){ focusId = n.id; } // 키보드로 연 경우 포커스 유지
         expandedId = (expandedId === n.id) ? null : n.id;
         render();
       });
@@ -690,6 +726,7 @@
         var tdDetail = document.createElement('td');
         tdDetail.colSpan = 3;
         var detail = document.createElement('div');
+        detail.id = 'notice-detail-' + n.id;
         var content = lang === 'en' ? n.content_en : n.content;
         if(content && content.trim()){
           detail.className = 'board-detail';
@@ -703,6 +740,11 @@
         body.appendChild(trDetail);
       }
     });
+    if(focusId !== null){
+      var fb = body.querySelector('button[data-id="' + focusId + '"]');
+      if(fb){ fb.focus(); }
+      focusId = null;
+    }
   }
 
   window.renderBoard = render;
@@ -710,9 +752,11 @@
 })();
 </script>
 
-<!-- ===== ENG/KOR 즉시 전환 (사전 번역, 새로고침·외부요청 없음) ===== -->
+<!-- ===== ENG/KOR 즉시 전환 (사전 번역, 새로고침·외부요청 없음, 선택 언어는 브라우저에 저장) ===== -->
 <script>
 (function(){
+  var KEY = 'cgc-lang';
+
   function applyLang(lang){
     document.documentElement.lang = lang;
     document.title = (lang === 'en') ? 'Central Gift Committee' : '중앙선물위원회';
@@ -720,18 +764,33 @@
       var val = el.getAttribute(lang === 'en' ? 'data-en' : 'data-ko');
       if(val !== null){ el.innerHTML = val; }
     });
+    document.querySelectorAll('[data-alt-ko]').forEach(function(el){
+      var alt = el.getAttribute(lang === 'en' ? 'data-alt-en' : 'data-alt-ko');
+      if(alt !== null){ el.setAttribute('alt', alt); }
+    });
     var btn = document.getElementById('langToggle');
-    if(btn){ btn.textContent = (lang === 'en') ? 'KOR' : 'ENG'; }
+    if(btn){
+      btn.textContent = (lang === 'en') ? 'KOR' : 'ENG';
+      btn.setAttribute('aria-label', (lang === 'en') ? '한국어로 보기' : 'View in English');
+    }
     if(typeof window.renderBoard === 'function'){ window.renderBoard(); }
+  }
+
+  function saveLang(lang){
+    try{ localStorage.setItem(KEY, lang); }catch(e){}
+  }
+  function loadLang(){
+    try{ return localStorage.getItem(KEY); }catch(e){ return null; }
   }
 
   var btn = document.getElementById('langToggle');
   btn.addEventListener('click', function(){
-    applyLang(currentLangIsEn() ? 'ko' : 'en');
+    var next = (document.documentElement.lang === 'en') ? 'ko' : 'en';
+    applyLang(next);
+    saveLang(next);
   });
-  function currentLangIsEn(){
-    return document.documentElement.lang === 'en';
-  }
+
+  if(loadLang() === 'en'){ applyLang('en'); }
 })();
 </script>
 </body>
